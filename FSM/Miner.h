@@ -7,16 +7,16 @@ class State;
 class Miner : public BaseEntity
 {
 private:
-	State* pCurrentState;	//当前状态
+	State* pCurrentState;		//当前状态
 	Location CurrentLocation;	//当前位置
 	int Money;
 	int Hungry;
 	int thirsty;
 public:
+	Location getLocation();
 	Miner(int _ID) : BaseEntity(_ID) {};
 	void Update();
 	void ChangeState(State* _pState);
 	void ChangeLocation(Location _Location);
-	Location getLocation();
 };
 
