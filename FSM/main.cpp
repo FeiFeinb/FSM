@@ -1,7 +1,14 @@
+#include<Windows.h>
 #include "BaseEntity.h"
 #include "Miner.h"
 #include "State.h"
-int main() 
+#include "Motion.h"
+int main()
 {
-	std::cin.get();
+	Miner Steve(250, GotoCave::GetInstance(), Location::Cave);
+	while (true)
+	{
+		Steve.Update();
+		Sleep(2000);
+	}
 }
