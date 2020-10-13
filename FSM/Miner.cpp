@@ -1,5 +1,17 @@
 #include "Miner.h"
 
+Miner::Miner(int _ID, State<Miner>* _pCurrentState, Location _CurrentLocation) : BaseEntity(_ID), CurrentLocation(_CurrentLocation)
+{
+	pStateMachine = new StateMachine<Miner>(this);
+	pStateMachine->SetCurrentState(GotoCave::GetInstance());
+	//Set GlobalState
+}
+
+StateMachine<Miner>* Miner::GetStateMachine()
+{
+	return pStateMachine;
+}
+
 void Miner::Update()
 {
 	//ShowMySelf();
