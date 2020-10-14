@@ -1,6 +1,11 @@
 #pragma once
-#include"State.h"
+#include<random>
+#include<time.h>
+#include<functional>
 #include"Motion.h"
+#include"BaseMotion.hpp"
+#include"State.h"
+class GotoWashRoom;
 template<class EntityType>
 class State;
 template<class EntityType>
@@ -13,7 +18,7 @@ private:
 	State<EntityType>* pCurrentState;
 	State<EntityType>* pGlobolState;
 public:
-	StateMachine(EntityType* _pOwner) : pOwner(_pOwner), pPreviousState(nullptr), 
+	StateMachine(EntityType* _pOwner) : pOwner(_pOwner), pPreviousState(nullptr),
 		pCurrentState(nullptr), pGlobolState(nullptr) {}
 
 	void SetPreviousState(State<EntityType>* _pState) { pPreviousState = _pState; }
@@ -25,7 +30,7 @@ public:
 	bool isInState(const State<EntityType>* _pState) const { return pCurrentState == _pState; }
 	void ChangeState(State<EntityType>* _pState);
 	void ToPrevious();
-	void Update() const;
+	void Update();
 };
 
 
@@ -33,6 +38,7 @@ template<class EntityType>
 inline void StateMachine<EntityType>::ChangeState(State<EntityType>* _pState)
 {
 	assert(pCurrentState && _pState);
+	pPreviousState = pCurrentState;
 	pCurrentState->Exit(pOwner);
 	pCurrentState = _pState;
 	pCurrentState->Enter(pOwner);
@@ -45,10 +51,17 @@ inline void StateMachine<EntityType>::ToPrevious()
 }
 
 template<class EntityType>
-inline void StateMachine<EntityType>::Update() const
+inline void StateMachine<EntityType>::Update()
 {
-	if (pGlobolState)
-		pGlobolState->Excute(pOwner);
+	static std::default_random_engine e(time(NULL));
+	static std::uniform_int_distribution<int> d(-100, 100);
+	static auto randNum = std::bind(d, e);
+	pGlobolState = randNum() > 80 ? Singleton<GotoWashRoom>::GetInstance() : nullptr;
+	if (pGlobolState){
+		ChangeState(pGlobolState)
+	}
 	if (pCurrentState)
 		pCurrentState->Excute(pOwner);
 }
+
+

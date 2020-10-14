@@ -1,15 +1,15 @@
 #pragma once
 #include<assert.h>
 #include"BaseEntity.h"
+#include"BaseMotion.hpp"
+#include"StateMachine.hpp"
 #include"State.h"
 #include"Motion.h"
-#include"StateMachine.hpp"
-enum class Location { Hotel, Restaurant, Bar, Bank, Cave };
-
-//template<class EntityType>
-//class State;
-//template<class EntityType>
-//class StateMachine;
+enum class Location { Hotel, Restaurant, Bar, Bank, Cave, WashRoom };
+template<class EntityType>
+class State;
+template<class EntityType>
+class StateMachine;
 class Miner : public BaseEntity
 {
 private:
@@ -26,6 +26,7 @@ public:
 	void Update();
 	void ChangeLocation(Location _Location);
 	Location getLocation();
+
 	void ShowMySelf();
 	void Sleep(int _Fit, int _Costs);
 	bool WantSleep();
@@ -36,4 +37,6 @@ public:
 	void Mine();
 	bool WantMine();
 };
+
+
 

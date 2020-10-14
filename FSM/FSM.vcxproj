@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BaseEntity.h" />
+    <ClInclude Include="BaseMotion.hpp" />
     <ClInclude Include="Miner.h" />
     <ClInclude Include="Motion.h" />
     <ClInclude Include="State.h" />
@@ -150,6 +151,7 @@
     <ClCompile Include="Miner.cpp" />
     <ClCompile Include="Motion.cpp" />
     <ClCompile Include="State.cpp" />
+    <ClCompile Include="StateMachine.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

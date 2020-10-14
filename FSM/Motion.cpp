@@ -63,7 +63,14 @@ void GotoRestaurant::Enter(Miner* _pMiner)
 		_pMiner->ChangeLocation(Location::Restaurant);
 	}
 }
-
+void GotoWashRoom::Enter(Miner* _pMiner)
+{
+	if (_pMiner->getLocation() != Location::Restaurant)
+	{
+		std::cout << MINERID << "go into washroom!" << std::endl;
+		_pMiner->ChangeLocation(Location::WashRoom);
+	}
+}
 
 void GotoCave::Excute(Miner* _pMiner)
 {
@@ -97,6 +104,11 @@ void GotoRestaurant::Excute(Miner* _pMiner)
 	if (_pMiner->WantMine())
 		_pMiner->GetStateMachine()->ChangeState(GotoCave::GetInstance());
 }
+void GotoWashRoom::Excute(Miner* _pMiner)
+{
+	std::cout << MINERID << "is shitting!" << std::endl;
+	_pMiner->GetStateMachine()->ToPrevious();
+}
 void GotoCave::Exit(Miner* _pMiner)
 {
 	std::cout << MINERID << "left mine!" << std::endl;
@@ -112,5 +124,9 @@ void GotoBar::Exit(Miner* _pMiner)
 void GotoRestaurant::Exit(Miner* _pMiner)
 {
 	std::cout << MINERID << "left restaurant!" << std::endl;
+}
+void GotoWashRoom::Exit(Miner* _pMiner)
+{
+	std::cout << MINERID << "left washroom!" << std::endl;
 }
 

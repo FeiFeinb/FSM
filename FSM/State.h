@@ -1,7 +1,7 @@
 #pragma once
 #include<iostream>
 #include"Miner.h"
-//class Miner;
+class Miner;
 template<class EntityType>
 class State
 {

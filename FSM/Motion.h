@@ -1,5 +1,10 @@
 #pragma once
+#include"BaseMotion.hpp"
 #include"State.h"
+
+
+
+
 class Miner;
 template<class EntityType>
 class State;
@@ -58,13 +63,13 @@ public:
 class GotoWashRoom : public State<Miner>
 {
 private:
+	friend class Singleton<GotoWashRoom>;
 	GotoWashRoom() {}
-	GotoWashRoom(const GotoWashRoom&) {}
-	GotoWashRoom& operator=(const GotoWashRoom&) {}
-	static GotoWashRoom* pInstance;
+	GotoWashRoom(const GotoWashRoom&) = delete;
+	GotoWashRoom& operator=(const GotoWashRoom&) = delete;
 public:
-	static GotoWashRoom* GetInstance();
 	void Enter(Miner* _pMiner);
 	void Excute(Miner* _pMiner);
 	void Exit(Miner* _pMiner);
 };
+
