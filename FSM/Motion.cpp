@@ -131,3 +131,7 @@ void GotoWashRoom::Exit(Miner* _pMiner)
 	std::cout << MINERID << "PC" << std::endl;
 }
 
+GotoWashRoom::GotoWashRoom()
+{
+
+}
