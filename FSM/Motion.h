@@ -60,6 +60,7 @@ public:
 	void Excute(Miner* _pMiner);
 	void Exit(Miner* _pMiner);
 };
+//È«¾Ö×´Ì¬ 
 class GotoWashRoom : public State<Miner>
 {
 private:

@@ -129,4 +129,5 @@ void GotoWashRoom::Exit(Miner* _pMiner)
 {
 	std::cout << MINERID << "left washroom!" << std::endl;
 }
-GotoWashRoom::GotoWashRoom() { std::cout << "helllllllll" << std::endl; }
+
+GotoWashRoom::GotoWashRoom() { std::cout << "Singleton<GotoWashRoom> Create!" << std::endl; }
