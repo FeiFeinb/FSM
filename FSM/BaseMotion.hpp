@@ -3,20 +3,25 @@ template<class MotionType>
 class Singleton
 {
 private:
-	Singleton() {}
+	Singleton();
 	Singleton(const Singleton&) = delete;
 	Singleton& operator=(const Singleton&) = delete;
-	static MotionType* pInstance;
+	//static MotionType* pInstance;
 public:
-	static MotionType* GetInstance();
+	static MotionType& GetInstance();
 };
-template<class MotionType>
-MotionType* Singleton<MotionType>::pInstance = nullptr;
+
+//template<class MotionType>
+//Singleton<MotionType>::Singleton() {}
+
+//template<class MotionType>
+//MotionType* Singleton<MotionType>::pInstance = nullptr;
 
 template<class MotionType>
-inline MotionType* Singleton<MotionType>::GetInstance()
+inline MotionType& Singleton<MotionType>::GetInstance()
 {
-	if (pInstance == nullptr)
-		pInstance = new MotionType();
+	//if (pInstance == nullptr)
+	//	pInstance = new MotionType();
+	static MotionType pInstance;
 	return pInstance;
 }

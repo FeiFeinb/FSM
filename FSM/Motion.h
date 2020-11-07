@@ -64,7 +64,7 @@ class GotoWashRoom : public State<Miner>
 {
 private:
 	friend class Singleton<GotoWashRoom>;
-	GotoWashRoom() {}
+	GotoWashRoom();
 	GotoWashRoom(const GotoWashRoom&) = delete;
 	GotoWashRoom& operator=(const GotoWashRoom&) = delete;
 public:

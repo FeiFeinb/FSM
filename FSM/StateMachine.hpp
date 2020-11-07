@@ -56,9 +56,9 @@ inline void StateMachine<EntityType>::Update()
 	static std::default_random_engine e(time(NULL));
 	static std::uniform_int_distribution<int> d(-100, 100);
 	static auto randNum = std::bind(d, e);
-	pGlobolState = randNum() > 80 ? Singleton<GotoWashRoom>::GetInstance() : nullptr;
+	pGlobolState = randNum() > 80 ? &Singleton<GotoWashRoom>::GetInstance() : nullptr;
 	if (pGlobolState){
-		ChangeState(pGlobolState)
+		ChangeState(pGlobolState);
 	}
 	if (pCurrentState)
 		pCurrentState->Excute(pOwner);
