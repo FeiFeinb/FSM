@@ -134,4 +134,5 @@ GotoWashRoom::GotoWashRoom()
 { 
 	std::cout << "Singleton<GotoWashRoom> Create!" << std::endl; 
 	std::cout << "Global" << std::endl;
+	std::cout << "Global" << std::endl;
 }
