@@ -133,4 +133,5 @@ void GotoWashRoom::Exit(Miner* _pMiner)
 GotoWashRoom::GotoWashRoom()
 { 
 	std::cout << "Singleton<GotoWashRoom> Create!" << std::endl; 
+	std::cout << "Book" << std::endl; 
 }
