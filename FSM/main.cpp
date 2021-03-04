@@ -6,6 +6,7 @@
 
 int main()
 {
+	// 创建实例
 	Miner Steve(250, GotoCave::GetInstance(), Location::Cave);
 	while (true)
 	{

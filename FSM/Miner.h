@@ -14,7 +14,7 @@ class Miner : public BaseEntity
 {
 private:
 	StateMachine<Miner>* pStateMachine;
-	Location CurrentLocation;				//µ±«∞Œª÷√
+	Location CurrentLocation;				//ÂΩìÂâç‰ΩçÁΩÆ
 
 	int Money = 0;
 	int Hungry = 0;
@@ -36,6 +36,7 @@ public:
 	bool WantEat();
 	void Mine();
 	bool WantMine();
+
 };
 
 

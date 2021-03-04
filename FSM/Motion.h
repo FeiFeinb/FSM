@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include"BaseMotion.hpp"
 #include"State.h"
 
@@ -60,7 +60,7 @@ public:
 	void Excute(Miner* _pMiner);
 	void Exit(Miner* _pMiner);
 };
-//ȫ��״̬ 
+//全局状态 
 class GotoWashRoom : public State<Miner>
 {
 private:
